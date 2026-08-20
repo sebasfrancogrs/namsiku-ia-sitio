@@ -1,0 +1,71 @@
+# Namsiku IA — Sitio web
+
+Sitio de portafolio y consultoría para Namsiku IA, construido con Next.js (App
+Router), React y Tailwind CSS. Práctica final del programa StudIA.
+
+## Desarrollo local
+
+```bash
+npm install
+cp .env.example .env.local   # completar las variables (ver abajo)
+npm run dev
+```
+
+Abrir [http://localhost:3000](http://localhost:3000).
+
+## Variables de entorno
+
+| Variable | Dónde se usa | Notas |
+|---|---|---|
+| `ANTHROPIC_API_KEY` | `src/app/api/chat/route.js` | Clave de la API de Claude. Nunca se expone al cliente. |
+| `N8N_CONTACT_WEBHOOK_URL` | `src/app/api/contacto/route.js` | URL del webhook de n8n que recibe el formulario de contacto. |
+
+Sin estas variables, el sitio corre igual — el chat y el formulario responden
+con un error controlado hasta que se configuren.
+
+## Estructura
+
+```
+src/
+├── app/
+│   ├── page.js                 # Inicio
+│   ├── servicios/page.js
+│   ├── portafolio/
+│   │   ├── page.js              # Grid de casos
+│   │   └── [slug]/page.js       # Detalle de caso
+│   ├── nosotros/page.js
+│   ├── contacto/
+│   │   ├── page.js
+│   │   └── ContactForm.js       # Client component con validación
+│   └── api/
+│       ├── chat/route.js        # POST → Anthropic (Claude)
+│       └── contacto/route.js    # POST → webhook de n8n
+├── components/                  # Header, Footer, ChatWidget, Logo
+└── lib/portfolio.js             # Contenido de los 5 casos del portafolio
+```
+
+## Contenido pendiente de reemplazo
+
+- **Logo real**: `public/logo-mark.svg` es un placeholder geométrico. Reemplazar
+  cuando llegue el archivo del rostro de jaguar.
+- **Imágenes del portafolio**: `public/portafolio/*.svg` son placeholders de
+  marca. Reemplazar con capturas/imágenes reales de cada caso.
+- **Caso 5 del portafolio**: "Asistente de documentación clínica" está marcado
+  como `esPlaceholder: true` en `src/lib/portfolio.js` — es un caso conceptual
+  a definir, no un proyecto entregado.
+- **Resultado del modelo de ML**: `public/portafolio/apnea-ml-resultado.svg` es
+  un placeholder. Reemplazar con el export real del notebook de Google Colab.
+
+## Deploy (Coolify)
+
+El proyecto incluye `Dockerfile` con build multi-stage y salida `standalone`
+de Next.js, listo para desplegarse como **Application** en Coolify:
+
+1. Subir el repo a git (ver más abajo).
+2. En Coolify: New Resource → Application → conectar el repo.
+3. Build pack: Dockerfile (detectado automáticamente).
+4. Configurar `ANTHROPIC_API_KEY` y `N8N_CONTACT_WEBHOOK_URL` como variables de
+   entorno del recurso en Coolify (no van en el repo).
+5. Dominio: usar el `sslip.io` que Coolify asigna automáticamente — no
+   requiere tocar el Cloudflare Tunnel del servidor. Ver `CLAUDE.md` en la raíz
+   del servidor (`/home/ubuntu/CLAUDE.md`) para el detalle de esa decisión.
