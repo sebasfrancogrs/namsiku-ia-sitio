@@ -17,11 +17,20 @@ Abrir [http://localhost:3000](http://localhost:3000).
 
 | Variable | Dónde se usa | Notas |
 |---|---|---|
-| `ANTHROPIC_API_KEY` | `src/app/api/chat/route.js` | Clave de la API de Claude. Nunca se expone al cliente. |
+| `AI_PROVIDER` | `src/lib/ai/index.js` | `anthropic` (default) u `openrouter`. Cambiar de proveedor no requiere tocar código. |
+| `ANTHROPIC_API_KEY` / `ANTHROPIC_MODEL` | `src/lib/ai/anthropic.js` | Requeridas si `AI_PROVIDER=anthropic`. Modelo default: `claude-opus-5`. |
+| `OPENROUTER_API_KEY` / `OPENROUTER_MODEL` | `src/lib/ai/openrouter.js` | Requeridas si `AI_PROVIDER=openrouter`. `OPENROUTER_MODEL` es el slug del modelo (ver [openrouter.ai/models](https://openrouter.ai/models)) — sin default, hay que fijarlo explícitamente. |
 | `N8N_CONTACT_WEBHOOK_URL` | `src/app/api/contacto/route.js` | URL del webhook de n8n que recibe el formulario de contacto. |
 
 Sin estas variables, el sitio corre igual — el chat y el formulario responden
 con un error controlado hasta que se configuren.
+
+### Agregar un proveedor de IA nuevo
+
+`src/lib/ai/` es un adaptador simple: cada proveedor es un archivo con
+`isConfigured()`, `getReply(systemPrompt, messages)`, `isAuthError(error)` e
+`isRateLimitError(error)`. Para sumar uno, crear el archivo y registrarlo en
+`PROVIDERS` dentro de `src/lib/ai/index.js`.
 
 ## Estructura
 

@@ -1,4 +1,4 @@
-import Anthropic from "@anthropic-ai/sdk";
+import { getChatReply, isAiConfigured, classifyError } from "@/lib/ai";
 
 const SYSTEM_PROMPT = `Eres el asistente de Namsiku IA, una consultoría de inteligencia artificial y automatización.
 Tono: seguro, preciso, cálido. Nunca agresivo ni "vendedor". Frases cortas. Evita jerga genérica de IA
@@ -17,10 +17,8 @@ Responde siempre en español, de forma breve (2-4 frases salvo que se pida más 
 const MAX_HISTORY_MESSAGES = 20;
 
 export async function POST(request) {
-  const apiKey = process.env.ANTHROPIC_API_KEY;
-
-  if (!apiKey) {
-    console.error("ANTHROPIC_API_KEY no está configurada");
+  if (!isAiConfigured()) {
+    console.error("Proveedor de IA no configurado (ver AI_PROVIDER en .env)");
     return Response.json(
       { error: "El asistente no está configurado todavía." },
       { status: 500 }
@@ -47,35 +45,25 @@ export async function POST(request) {
     return Response.json({ error: "Falta el mensaje." }, { status: 400 });
   }
 
-  const client = new Anthropic({ apiKey });
-
   try {
-    const response = await client.messages.create({
-      model: "claude-opus-5",
-      max_tokens: 1024,
-      system: SYSTEM_PROMPT,
-      output_config: { effort: "medium" },
-      messages,
-    });
-
-    const textBlock = response.content.find((b) => b.type === "text");
-
-    return Response.json({ reply: textBlock?.text ?? "" });
+    const reply = await getChatReply(SYSTEM_PROMPT, messages);
+    return Response.json({ reply });
   } catch (error) {
-    if (error instanceof Anthropic.RateLimitError) {
+    const kind = classifyError(error);
+    if (kind === "rate_limit") {
       return Response.json(
         { error: "Muchas solicitudes en este momento. Intenta de nuevo en unos segundos." },
         { status: 429 }
       );
     }
-    if (error instanceof Anthropic.AuthenticationError) {
-      console.error("Clave de Anthropic inválida");
+    if (kind === "auth") {
+      console.error("Credenciales del proveedor de IA inválidas");
       return Response.json(
         { error: "El asistente no está disponible en este momento." },
         { status: 500 }
       );
     }
-    console.error("Error llamando a la API de Claude:", error);
+    console.error("Error llamando al proveedor de IA:", error);
     return Response.json(
       { error: "No se pudo generar una respuesta. Intenta de nuevo." },
       { status: 502 }
