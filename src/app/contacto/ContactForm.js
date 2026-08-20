@@ -33,7 +33,8 @@ export default function ContactForm() {
 
   async function onSubmit(e) {
     e.preventDefault();
-    const form = new FormData(e.currentTarget);
+    const formEl = e.currentTarget;
+    const form = new FormData(formEl);
     const datos = {
       nombre: form.get("nombre")?.toString() ?? "",
       email: form.get("email")?.toString() ?? "",
@@ -54,7 +55,7 @@ export default function ContactForm() {
       });
       if (!res.ok) throw new Error("request failed");
       setEstado(ESTADO.OK);
-      e.currentTarget.reset();
+      formEl.reset();
     } catch {
       setEstado(ESTADO.ERROR);
     }
