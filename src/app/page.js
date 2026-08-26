@@ -1,67 +1,95 @@
 import Link from "next/link";
 import Image from "next/image";
+import Kicker from "@/components/Kicker";
+
+const SERVICIOS_INDICE = [
+  { numero: "01", titulo: "Automatización de procesos" },
+  { numero: "02", titulo: "Agentes conversacionales" },
+  { numero: "03", titulo: "Documentos con IA" },
+  { numero: "04", titulo: "Análisis y modelos predictivos" },
+];
 
 export default function Home() {
   return (
     <>
-      <section className="bg-selva">
-        <div className="mx-auto flex max-w-6xl flex-col items-center gap-8 px-4 py-16 text-center sm:px-6 sm:py-24">
-          <Image
-            src="/logo-mark.svg"
-            alt="Namsiku IA"
-            width={96}
-            height={96}
-            className="h-20 w-20 sm:h-24 sm:w-24"
-            priority
-          />
-          <div className="space-y-3">
-            <h1 className="font-display text-4xl font-bold text-crema sm:text-6xl">
-              Namsiku IA
+      <section className="relative overflow-hidden bg-selva-textured">
+        <div className="mx-auto grid max-w-6xl gap-12 px-4 py-20 sm:px-6 sm:py-28 lg:grid-cols-[1.2fr_0.8fr] lg:items-end lg:gap-8">
+          <div>
+            <Kicker>Consultoría en IA y automatización</Kicker>
+            <h1 className="mt-5 font-display text-[clamp(3rem,9vw,6.5rem)] leading-[0.95] font-bold tracking-tight text-crema">
+              Namsiku
+              <br />
+              IA
             </h1>
-            <p className="font-display text-xl text-oro sm:text-2xl">
+            <p className="mt-6 font-display text-2xl italic text-oro sm:text-3xl">
               Percibe. Piensa. Actúa.
             </p>
           </div>
-          <p className="max-w-xl text-balance text-base text-crema/80 sm:text-lg">
-            Consultoría en inteligencia artificial y automatización. Diseñamos
-            agentes, flujos y modelos que amplifican lo que tu equipo ya sabe
-            hacer — sin ruido, sin promesas vacías.
-          </p>
-          <div className="flex flex-col gap-3 sm:flex-row">
-            <Link
-              href="/portafolio"
-              className="rounded-full bg-oro px-6 py-3 text-sm font-medium text-selva transition-transform hover:scale-105"
-            >
-              Ver portafolio
-            </Link>
-            <Link
-              href="/contacto"
-              className="rounded-full border border-crema/30 px-6 py-3 text-sm font-medium text-crema transition-colors hover:border-oro hover:text-oro"
-            >
-              Hablemos de tu proyecto
-            </Link>
+
+          <div className="lg:pb-3">
+            <p className="max-w-md text-balance text-lg leading-relaxed text-crema/80">
+              No vendemos inteligencia artificial. La usamos para resolver
+              lo concreto: un agente que responde solo, un flujo que ya no
+              necesita que alguien lo dispare a mano.
+            </p>
+            <div className="mt-8 flex flex-wrap gap-4">
+              <Link href="/portafolio" className="btn btn-primary">
+                Ver portafolio <span className="btn-arrow">→</span>
+              </Link>
+              <Link href="/contacto" className="btn btn-ghost-on-dark">
+                Hablemos de tu proyecto
+              </Link>
+            </div>
           </div>
         </div>
+
+        <Image
+          src="/logo-mark.svg"
+          alt=""
+          aria-hidden="true"
+          width={280}
+          height={280}
+          className="pointer-events-none absolute -right-16 -top-16 h-56 w-56 opacity-[0.07] sm:h-72 sm:w-72"
+        />
       </section>
 
-      <section className="mx-auto max-w-6xl px-4 py-16 sm:px-6">
-        <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
-          {[
-            { titulo: "Automatización de procesos", href: "/servicios" },
-            { titulo: "Agentes conversacionales", href: "/servicios" },
-            { titulo: "Documentos con IA", href: "/servicios" },
-            { titulo: "Análisis y modelos predictivos", href: "/servicios" },
-          ].map((item) => (
+      <section className="mx-auto max-w-6xl px-4 py-20 sm:px-6">
+        <div className="flex flex-col gap-10 lg:flex-row lg:justify-between">
+          <div className="max-w-sm">
+            <Kicker>Lo que hacemos</Kicker>
+            <h2 className="mt-4 font-display text-3xl font-bold text-selva">
+              Cuatro formas de aplicar la IA con criterio
+            </h2>
+            <p className="mt-4 text-sm leading-relaxed text-obsidiana/65">
+              Cada proyecto empieza por el problema, no por la tecnología.
+              La IA entra donde resuelve algo puntual. Donde no hace falta,
+              se queda afuera.
+            </p>
             <Link
-              key={item.titulo}
-              href={item.href}
-              className="group rounded-2xl border border-selva/10 bg-white p-6 transition-colors hover:border-oro"
+              href="/servicios"
+              className="btn btn-ghost-on-light mt-6 !inline-flex"
             >
-              <p className="font-display text-lg font-bold text-selva group-hover:text-oro">
-                {item.titulo}
-              </p>
+              Ver servicios <span className="btn-arrow">→</span>
             </Link>
-          ))}
+          </div>
+
+          <ol className="flex-1 divide-y divide-selva/10 border-t border-selva/10">
+            {SERVICIOS_INDICE.map((s) => (
+              <li key={s.numero}>
+                <Link
+                  href="/servicios"
+                  className="group flex items-baseline gap-6 py-6 transition-colors hover:bg-selva/[0.03]"
+                >
+                  <span className="font-display text-sm text-oro">
+                    {s.numero}
+                  </span>
+                  <span className="font-display text-xl font-semibold text-selva transition-transform group-hover:translate-x-1 sm:text-2xl">
+                    {s.titulo}
+                  </span>
+                </Link>
+              </li>
+            ))}
+          </ol>
         </div>
       </section>
     </>

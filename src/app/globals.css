@@ -32,3 +32,77 @@ h4,
 .font-display {
   font-family: var(--font-display), Georgia, serif;
 }
+
+/* Textura de papel muy sutil sobre fondos oscuros — reemplaza el flat-color
+   plano por algo con presencia editorial, sin depender de imágenes. */
+.bg-selva-textured {
+  background-color: var(--color-selva);
+  background-image:
+    radial-gradient(circle at 15% 20%, rgba(176, 141, 69, 0.10), transparent 45%),
+    radial-gradient(circle at 85% 75%, rgba(201, 118, 43, 0.07), transparent 40%);
+}
+
+.kicker {
+  font-family: var(--font-body), sans-serif;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+}
+
+/* Botón editorial: rectangular, sin sombra, con inversión de color como
+   único feedback — nada de scale() ni radios grandes. */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.9rem 1.6rem;
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  border-radius: 2px;
+  transition: background-color 200ms ease-out, color 200ms ease-out, border-color 200ms ease-out;
+}
+
+.btn-primary {
+  background: var(--color-oro);
+  color: var(--color-selva);
+}
+.btn-primary:hover {
+  background: var(--color-crema);
+}
+
+.btn-ghost-on-dark {
+  border: 1px solid rgba(245, 240, 230, 0.35);
+  color: var(--color-crema);
+}
+.btn-ghost-on-dark:hover {
+  border-color: var(--color-oro);
+  color: var(--color-oro);
+}
+
+.btn-ghost-on-light {
+  border: 1px solid rgba(20, 20, 20, 0.2);
+  color: var(--color-selva);
+}
+.btn-ghost-on-light:hover {
+  border-color: var(--color-selva);
+  background: var(--color-selva);
+  color: var(--color-crema);
+}
+
+.btn-arrow {
+  transition: transform 200ms ease-out;
+  display: inline-block;
+}
+.btn:hover .btn-arrow {
+  transform: translateX(3px);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+  }
+}

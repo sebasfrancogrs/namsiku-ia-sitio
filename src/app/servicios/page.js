@@ -1,51 +1,66 @@
+import Kicker from "@/components/Kicker";
+
 export const metadata = { title: "Servicios" };
 
 const SERVICIOS = [
   {
+    numero: "01",
     titulo: "Automatización de procesos",
     descripcion:
-      "Diseñamos y construimos flujos que eliminan trabajo manual repetitivo — desde cotizaciones hasta reportes — conectando las herramientas que tu equipo ya usa.",
+      "Esa tarea que alguien arma a mano cada semana, una cotización, un traspaso de datos entre sistemas, la convertimos en un flujo que corre solo.",
   },
   {
+    numero: "02",
     titulo: "Agentes conversacionales",
     descripcion:
-      "Asistentes que sostienen una conversación real, con memoria y estado, integrados a WhatsApp, web o los canales donde ya está tu cliente.",
+      "Un asistente que recuerda de qué se habló hace tres mensajes, no solo el último. Vive en WhatsApp, en tu web, o en el canal donde ya está tu cliente.",
   },
   {
+    numero: "03",
     titulo: "Extracción y generación de documentos con IA",
     descripcion:
-      "Leemos documentos con visión por computadora y generamos certificados, reportes o contratos oficiales por código, sin plantillas frágiles.",
+      "Leemos un documento con visión por computadora y generamos el certificado o el reporte del otro lado, por código, sin depender de una plantilla de Word a punto de romperse.",
   },
   {
+    numero: "04",
     titulo: "Análisis de datos y modelos predictivos",
     descripcion:
-      "Modelos que encuentran la correlación real detrás de tus datos, para decisiones basadas en evidencia y no en intuición.",
+      "Un modelo que mira tus datos y encuentra la correlación que ya sospechabas, pero no podías demostrar.",
   },
 ];
 
 export default function ServiciosPage() {
   return (
-    <div className="mx-auto max-w-6xl px-4 py-16 sm:px-6">
-      <div className="max-w-2xl">
-        <h1 className="font-display text-3xl font-bold text-selva sm:text-4xl">
-          Servicios
+    <div className="mx-auto max-w-6xl px-4 py-20 sm:px-6">
+      <div className="max-w-xl">
+        <Kicker tone="selva">Servicios</Kicker>
+        <h1 className="mt-4 font-display text-4xl font-bold text-selva sm:text-5xl">
+          Cómo lo hacemos
         </h1>
-        <p className="mt-3 text-obsidiana/70">
-          Cuatro formas concretas en las que la IA puede amplificar lo que tu
-          equipo ya hace bien.
+        <p className="mt-4 text-obsidiana/65">
+          Cuatro formas concretas de amplificar lo que tu equipo ya hace
+          bien. Ninguna empieza por &ldquo;instalar IA&rdquo;: todas
+          arrancan por el problema real.
         </p>
       </div>
 
-      <div className="mt-10 grid gap-6 sm:grid-cols-2">
+      <div className="mt-16 divide-y divide-selva/10 border-t border-selva/10">
         {SERVICIOS.map((s) => (
           <div
-            key={s.titulo}
-            className="rounded-2xl border border-selva/10 bg-white p-6"
+            key={s.numero}
+            className="grid gap-4 py-10 sm:grid-cols-[auto_1fr] sm:gap-10"
           >
-            <h2 className="font-display text-xl font-bold text-selva">
-              {s.titulo}
-            </h2>
-            <p className="mt-2 text-sm text-obsidiana/70">{s.descripcion}</p>
+            <span className="font-display text-4xl font-semibold text-oro sm:text-5xl">
+              {s.numero}
+            </span>
+            <div className="max-w-2xl">
+              <h2 className="font-display text-2xl font-bold text-selva">
+                {s.titulo}
+              </h2>
+              <p className="mt-3 leading-relaxed text-obsidiana/70">
+                {s.descripcion}
+              </p>
+            </div>
           </div>
         ))}
       </div>

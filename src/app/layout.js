@@ -7,7 +7,8 @@ import ChatWidget from "@/components/ChatWidget";
 const fraunces = Fraunces({
   variable: "--font-fraunces",
   subsets: ["latin"],
-  weight: ["600", "700"],
+  weight: ["500", "600", "700"],
+  style: ["normal", "italic"],
 });
 
 const inter = Inter({

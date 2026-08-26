@@ -17,6 +17,9 @@ const ESTADO = {
   ERROR: "error",
 };
 
+const inputClass =
+  "mt-2 w-full border-0 border-b border-selva/25 bg-transparent px-0 py-2 text-selva outline-none transition-colors focus:border-oro";
+
 export default function ContactForm() {
   const [estado, setEstado] = useState(ESTADO.IDLE);
   const [errores, setErrores] = useState({});
@@ -63,11 +66,11 @@ export default function ContactForm() {
 
   if (estado === ESTADO.OK) {
     return (
-      <div className="rounded-2xl border border-selva/10 bg-white p-6 text-center">
-        <p className="font-display text-lg font-bold text-selva">
+      <div className="border border-oro/30 p-8 sm:p-10">
+        <p className="font-display text-2xl font-bold text-selva">
           Mensaje enviado
         </p>
-        <p className="mt-2 text-sm text-obsidiana/70">
+        <p className="mt-2 text-obsidiana/65">
           Gracias por escribirnos. Te respondemos a la brevedad.
         </p>
       </div>
@@ -75,48 +78,32 @@ export default function ContactForm() {
   }
 
   return (
-    <form onSubmit={onSubmit} noValidate className="space-y-5">
+    <form onSubmit={onSubmit} noValidate className="space-y-7">
       <div>
-        <label htmlFor="nombre" className="block text-sm font-medium text-selva">
+        <label htmlFor="nombre" className="kicker text-selva/60">
           Nombre
         </label>
-        <input
-          id="nombre"
-          name="nombre"
-          type="text"
-          required
-          className="mt-1 w-full rounded-lg border border-selva/20 px-4 py-2 text-sm outline-none focus:border-oro"
-        />
-        {errores.nombre && (
-          <p className="mt-1 text-xs text-ember">{errores.nombre}</p>
-        )}
+        <input id="nombre" name="nombre" type="text" required className={inputClass} />
+        {errores.nombre && <p className="mt-2 text-xs text-ember">{errores.nombre}</p>}
       </div>
 
       <div>
-        <label htmlFor="email" className="block text-sm font-medium text-selva">
+        <label htmlFor="email" className="kicker text-selva/60">
           Email
         </label>
-        <input
-          id="email"
-          name="email"
-          type="email"
-          required
-          className="mt-1 w-full rounded-lg border border-selva/20 px-4 py-2 text-sm outline-none focus:border-oro"
-        />
-        {errores.email && (
-          <p className="mt-1 text-xs text-ember">{errores.email}</p>
-        )}
+        <input id="email" name="email" type="email" required className={inputClass} />
+        {errores.email && <p className="mt-2 text-xs text-ember">{errores.email}</p>}
       </div>
 
       <div>
-        <label htmlFor="tipoProyecto" className="block text-sm font-medium text-selva">
+        <label htmlFor="tipoProyecto" className="kicker text-selva/60">
           Tipo de proyecto
         </label>
         <select
           id="tipoProyecto"
           name="tipoProyecto"
           defaultValue={TIPOS_PROYECTO[0]}
-          className="mt-1 w-full rounded-lg border border-selva/20 px-4 py-2 text-sm outline-none focus:border-oro"
+          className={`${inputClass} cursor-pointer`}
         >
           {TIPOS_PROYECTO.map((t) => (
             <option key={t} value={t}>
@@ -127,19 +114,17 @@ export default function ContactForm() {
       </div>
 
       <div>
-        <label htmlFor="mensaje" className="block text-sm font-medium text-selva">
+        <label htmlFor="mensaje" className="kicker text-selva/60">
           Mensaje
         </label>
         <textarea
           id="mensaje"
           name="mensaje"
-          rows={5}
+          rows={4}
           required
-          className="mt-1 w-full rounded-lg border border-selva/20 px-4 py-2 text-sm outline-none focus:border-oro"
+          className={`${inputClass} resize-none`}
         />
-        {errores.mensaje && (
-          <p className="mt-1 text-xs text-ember">{errores.mensaje}</p>
-        )}
+        {errores.mensaje && <p className="mt-2 text-xs text-ember">{errores.mensaje}</p>}
       </div>
 
       {estado === ESTADO.ERROR && (
@@ -151,7 +136,7 @@ export default function ContactForm() {
       <button
         type="submit"
         disabled={estado === ESTADO.ENVIANDO}
-        className="rounded-full bg-selva px-6 py-3 text-sm font-medium text-crema transition-transform hover:scale-105 disabled:opacity-50"
+        className="btn btn-ghost-on-light w-full justify-center sm:w-auto disabled:opacity-40"
       >
         {estado === ESTADO.ENVIANDO ? "Enviando…" : "Enviar mensaje"}
       </button>

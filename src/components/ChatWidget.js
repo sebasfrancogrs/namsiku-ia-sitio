@@ -56,15 +56,15 @@ export default function ChatWidget() {
   return (
     <div className="fixed bottom-4 right-4 z-50 sm:bottom-6 sm:right-6">
       {open && (
-        <div className="mb-3 flex h-[70vh] max-h-[520px] w-[90vw] max-w-sm flex-col overflow-hidden rounded-2xl border border-selva/10 bg-white shadow-2xl">
-          <div className="flex items-center justify-between bg-selva px-4 py-3">
+        <div className="mb-3 flex h-[70vh] max-h-[520px] w-[90vw] max-w-sm flex-col overflow-hidden border border-selva/15 bg-crema">
+          <div className="flex items-center justify-between border-b border-oro/25 bg-selva px-4 py-3">
             <p className="font-display text-sm font-bold text-crema">
               Asistente Namsiku IA
             </p>
             <button
               type="button"
               onClick={() => setOpen(false)}
-              className="text-crema/80 hover:text-oro"
+              className="text-crema/70 hover:text-oro"
               aria-label="Cerrar chat"
             >
               ✕
@@ -75,35 +75,35 @@ export default function ChatWidget() {
             {messages.map((m, i) => (
               <div
                 key={i}
-                className={`max-w-[85%] rounded-xl px-3 py-2 text-sm ${
+                className={`max-w-[85%] px-3 py-2 text-sm ${
                   m.role === "user"
-                    ? "ml-auto bg-oro/20 text-obsidiana"
-                    : "bg-crema text-obsidiana"
+                    ? "ml-auto bg-oro/15 text-obsidiana"
+                    : "bg-white text-obsidiana"
                 }`}
               >
                 {m.content}
               </div>
             ))}
             {loading && (
-              <div className="max-w-[85%] rounded-xl bg-crema px-3 py-2 text-sm text-obsidiana/60">
+              <div className="max-w-[85%] bg-white px-3 py-2 text-sm text-obsidiana/50">
                 Escribiendo…
               </div>
             )}
             {error && <p className="text-xs text-ember">{error}</p>}
           </div>
 
-          <form onSubmit={enviarMensaje} className="flex gap-2 border-t border-selva/10 p-3">
+          <form onSubmit={enviarMensaje} className="flex gap-3 border-t border-selva/10 p-3">
             <input
               type="text"
               value={input}
               onChange={(e) => setInput(e.target.value)}
               placeholder="Escribe tu pregunta…"
-              className="flex-1 rounded-full border border-selva/20 px-4 py-2 text-sm outline-none focus:border-oro"
+              className="flex-1 border-0 border-b border-selva/25 bg-transparent px-1 py-2 text-sm text-selva outline-none focus:border-oro"
             />
             <button
               type="submit"
               disabled={loading || !input.trim()}
-              className="rounded-full bg-selva px-4 py-2 text-sm font-medium text-crema disabled:opacity-40"
+              className="btn btn-ghost-on-light !px-4 !py-2 disabled:opacity-40"
             >
               Enviar
             </button>
@@ -114,7 +114,7 @@ export default function ChatWidget() {
       <button
         type="button"
         onClick={() => setOpen((v) => !v)}
-        className="flex h-14 w-14 items-center justify-center rounded-full bg-oro text-selva shadow-lg transition-transform hover:scale-105"
+        className="flex h-14 w-14 items-center justify-center rounded-full border border-oro/40 bg-oro text-selva transition-colors hover:bg-crema"
         aria-label={open ? "Cerrar chat" : "Abrir chat"}
       >
         {open ? (

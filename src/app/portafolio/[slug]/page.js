@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
+import Kicker from "@/components/Kicker";
 import { casos, getCasoBySlug } from "@/lib/portfolio";
 
 export function generateStaticParams() {
@@ -22,72 +23,67 @@ export default async function CasoPage({ params }) {
   }
 
   return (
-    <div className="mx-auto max-w-4xl px-4 py-16 sm:px-6">
-      <Link href="/portafolio" className="text-sm text-selva/70 hover:text-oro">
-        ← Volver al portafolio
-      </Link>
-
-      <div className="mt-4 overflow-hidden rounded-2xl border border-selva/10">
-        <div className="relative aspect-[8/5] w-full">
-          <Image src={caso.imagen} alt={caso.nombre} fill className="object-cover" />
+    <article>
+      <div className="relative aspect-[16/8] w-full overflow-hidden bg-selva sm:aspect-[16/6]">
+        <Image src={caso.imagen} alt={caso.nombre} fill priority className="object-cover" />
+        <div className="absolute inset-0 bg-gradient-to-t from-selva/90 via-selva/10 to-transparent" />
+        <div className="absolute inset-x-0 bottom-0 mx-auto max-w-6xl px-4 pb-8 sm:px-6">
+          <Link href="/portafolio" className="kicker text-crema/60 hover:text-oro">
+            ← Portafolio
+          </Link>
+          <h1 className="mt-3 font-display text-3xl font-bold text-crema sm:text-5xl">
+            {caso.nombre}
+          </h1>
+          {caso.esPlaceholder && (
+            <p className="kicker mt-3 text-oro">Caso conceptual — placeholder de esta fase</p>
+          )}
         </div>
       </div>
 
-      <h1 className="mt-8 font-display text-3xl font-bold text-selva sm:text-4xl">
-        {caso.nombre}
-      </h1>
-
-      {caso.esPlaceholder && (
-        <p className="mt-2 inline-block rounded-full bg-oro/20 px-3 py-1 text-xs font-medium text-selva">
-          Caso conceptual — placeholder de esta fase
-        </p>
-      )}
-
-      <div className="mt-8 grid gap-8 sm:grid-cols-2">
-        <div>
-          <h2 className="font-display text-lg font-bold text-selva">Problema</h2>
-          <p className="mt-2 text-sm text-obsidiana/70">{caso.problema}</p>
-        </div>
-        <div>
-          <h2 className="font-display text-lg font-bold text-selva">Solución</h2>
-          <p className="mt-2 text-sm text-obsidiana/70">{caso.solucion}</p>
-        </div>
-      </div>
-
-      <div className="mt-8">
-        <h2 className="font-display text-lg font-bold text-selva">
-          Herramientas usadas
-        </h2>
-        <ul className="mt-3 flex flex-wrap gap-2">
-          {caso.herramientas.map((h) => (
-            <li
-              key={h}
-              className="rounded-full bg-selva/5 px-3 py-1 text-xs font-medium text-selva"
-            >
-              {h}
-            </li>
-          ))}
-        </ul>
-      </div>
-
-      {caso.mlResultado && (
-        <div className="mt-10 rounded-2xl border border-selva/10 bg-crema p-6">
-          <h2 className="font-display text-lg font-bold text-selva">
-            {caso.mlResultado.titulo}
-          </h2>
-          <p className="mt-2 text-sm text-obsidiana/70">
-            {caso.mlResultado.descripcion}
-          </p>
-          <div className="relative mt-4 aspect-[8/5] w-full overflow-hidden rounded-xl border border-selva/10">
-            <Image
-              src={caso.mlResultado.imagen}
-              alt={caso.mlResultado.titulo}
-              fill
-              className="object-cover"
-            />
+      <div className="mx-auto max-w-6xl px-4 py-16 sm:px-6">
+        <div className="grid gap-12 lg:grid-cols-2">
+          <div className="border-t border-selva/10 pt-6">
+            <Kicker tone="selva">Problema</Kicker>
+            <p className="mt-4 text-lg leading-relaxed text-obsidiana/75">
+              {caso.problema}
+            </p>
+          </div>
+          <div className="border-t border-selva/10 pt-6">
+            <Kicker tone="selva">Solución</Kicker>
+            <p className="mt-4 text-lg leading-relaxed text-obsidiana/75">
+              {caso.solucion}
+            </p>
           </div>
         </div>
-      )}
-    </div>
+
+        <div className="mt-14 border-t border-selva/10 pt-6">
+          <Kicker tone="selva">Herramientas</Kicker>
+          <ul className="mt-4 flex flex-wrap gap-x-8 gap-y-2">
+            {caso.herramientas.map((h) => (
+              <li key={h} className="font-display text-lg text-selva">
+                {h}
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        {caso.mlResultado && (
+          <div className="mt-16 border border-oro/25 p-6 sm:p-10">
+            <Kicker>{caso.mlResultado.titulo}</Kicker>
+            <p className="mt-3 max-w-2xl text-sm leading-relaxed text-obsidiana/65">
+              {caso.mlResultado.descripcion}
+            </p>
+            <div className="relative mt-6 aspect-[16/9] w-full overflow-hidden">
+              <Image
+                src={caso.mlResultado.imagen}
+                alt={caso.mlResultado.titulo}
+                fill
+                className="object-cover"
+              />
+            </div>
+          </div>
+        )}
+      </div>
+    </article>
   );
 }
