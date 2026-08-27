@@ -56,6 +56,35 @@ export default function Home() {
       </section>
 
       <section className="mx-auto max-w-6xl px-4 py-20 sm:px-6">
+        <div className="max-w-xl">
+          <Kicker tone="selva">El problema que resolvemos</Kicker>
+          <h2 className="mt-4 font-display text-3xl font-bold text-selva sm:text-4xl">
+            Una herramienta genérica resuelve un caso promedio. Tu proceso
+            no es promedio.
+          </h2>
+        </div>
+
+        <div className="mt-12 grid gap-px overflow-hidden border border-selva/10 bg-selva/10 sm:grid-cols-2">
+          <div className="bg-crema p-8">
+            <p className="kicker text-obsidiana/40">Herramienta genérica</p>
+            <ul className="mt-4 space-y-3 text-obsidiana/60">
+              <li>El proceso se adapta a la herramienta, no al revés.</li>
+              <li>El mismo prompt sirve, a medias, para cualquier negocio.</li>
+              <li>Las reglas de tu negocio hay que repetirlas cada vez.</li>
+            </ul>
+          </div>
+          <div className="border-t border-oro/30 bg-crema p-8 sm:border-t-0 sm:border-l">
+            <p className="kicker text-oro">Solución diseñada para tu problema</p>
+            <ul className="mt-4 space-y-3 text-obsidiana/75">
+              <li>La herramienta se construye alrededor de tu proceso real.</li>
+              <li>Conoce tus reglas de negocio porque las tiene incorporadas.</li>
+              <li>Corre sola, sin que nadie repita instrucciones.</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section className="mx-auto max-w-6xl px-4 pb-20 sm:px-6">
         <div className="flex flex-col gap-10 lg:flex-row lg:justify-between">
           <div className="max-w-sm">
             <Kicker>Lo que hacemos</Kicker>
@@ -92,6 +121,20 @@ export default function Home() {
               </li>
             ))}
           </ol>
+        </div>
+      </section>
+
+      <section className="bg-selva-textured">
+        <div className="mx-auto flex max-w-6xl flex-col items-start gap-6 px-4 py-16 sm:flex-row sm:items-center sm:justify-between sm:px-6">
+          <div>
+            <Kicker>Siguiente paso</Kicker>
+            <p className="mt-3 max-w-md font-display text-2xl font-bold text-crema">
+              Mira qué podemos construir para un problema como el tuyo.
+            </p>
+          </div>
+          <Link href="/portafolio" className="btn btn-primary">
+            Ver portafolio <span className="btn-arrow">→</span>
+          </Link>
         </div>
       </section>
     </>
