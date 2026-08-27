@@ -56,8 +56,8 @@ export default function CasosDeExitoPage() {
                     {caso.beneficios && (
                       <ul className="mt-4 space-y-2">
                         {caso.beneficios.map((b) => (
-                          <li key={b.texto} className="flex items-center gap-3 text-sm">
-                            <BenefitIcon name={b.icono} className="h-4 w-4 shrink-0 text-oro" />
+                          <li key={b.texto} className="flex items-start gap-3 text-sm">
+                            <BenefitIcon name={b.icono} className="mt-0.5 h-4 w-4 shrink-0 text-oro" />
                             <span className="text-obsidiana/70">{b.texto}</span>
                           </li>
                         ))}

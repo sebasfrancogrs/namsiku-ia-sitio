@@ -8,11 +8,11 @@ export const casos = [
     queConstruimos:
       "Un agente conversacional con estado, construido en n8n, que sostiene la conversación, calcula la cotización según reglas de negocio, genera el PDF y lo entrega por WhatsApp vía Evolution API, todo en el mismo hilo de chat.",
     resultado:
-      "La cotización, que antes tomaba minutos de trabajo manual por cliente, ahora se genera al instante dentro del mismo chat, sin errores de cálculo ni demoras en horas pico.",
+      "Antes, cotizar le tomaba al dueño entre 20 y 45 minutos por cliente: 5 a 30 minutos de conversación más unos 15 minutos redactando y exportando el PDF. Ese tiempo se lo devolvió el flujo automatizado por completo: hoy el sistema conversa, cotiza y genera el PDF sin su intervención.",
     herramientas: ["n8n", "Evolution API", "WhatsApp", "Generación de PDF"],
     beneficios: [
-      { icono: "clock", texto: "Cotiza en minutos, no en horas" },
-      { icono: "target", texto: "Cálculo sin errores de tipeo" },
+      { icono: "clock", texto: "20-45 min por cliente devueltos al dueño" },
+      { icono: "target", texto: "Cotiza, calcula y genera el PDF sin intervención" },
       { icono: "layers", texto: "Todo en el mismo chat de WhatsApp" },
     ],
     servicioRelacionado: {
@@ -29,7 +29,7 @@ export const casos = [
     queConstruimos:
       "Un pipeline que extrae datos de documentos fuente con visión por computadora y genera el certificado oficial en PDF por código, sin plantillas frágiles.",
     resultado:
-      "MVP en implementación activa con Protokimica: el certificado que se armaba dato por dato a mano hoy se genera por código a partir de la lectura automática del documento fuente, sin pasos de transcripción manual.",
+      "Piloto activo con Protokimica. Estos números son datos medidos en producción, no estimaciones.",
     herramientas: [
       "Visión por computadora",
       "Node.js",
@@ -37,9 +37,20 @@ export const casos = [
       "React",
     ],
     beneficios: [
-      { icono: "target", texto: "Datos extraídos sin transcripción manual" },
-      { icono: "shield", texto: "Certificado oficial, trazable por código" },
-      { icono: "clock", texto: "De días a minutos por certificado" },
+      { icono: "clock", texto: "De 20 a 2 minutos por documento (-90%)" },
+      {
+        icono: "trendingUp",
+        texto: "~1.560 certificados/mes al ritmo actual (30/hora, 2 h/día, 6 días/semana)",
+      },
+      {
+        icono: "shield",
+        texto:
+          "Ese volumen a mano habría requerido ~520 horas/mes, más de lo que cubre una sola persona a tiempo completo: evita sumar personal para sostener el ritmo",
+      },
+      {
+        icono: "target",
+        texto: "Tasa de error de 5.5% a 0.5% (-91%, ~11 veces menos errores)",
+      },
     ],
     servicioRelacionado: {
       label: "Automatización de Procesos",
