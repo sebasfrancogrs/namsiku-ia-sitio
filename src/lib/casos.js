@@ -23,7 +23,7 @@ export const casos = [
   {
     slug: "protocertia-certificados",
     nombre: "ProtoCertIA — Automatización de certificados con IA",
-    imagen: "/portafolio/protocertia.svg",
+    imagen: "/portafolio/protocertia.png",
     problema:
       "Cada certificado tomaba entre 20 y 30 minutos, transcrito a mano desde el documento fuente, con el margen de error que eso implica.",
     queConstruimos:

@@ -38,32 +38,46 @@ con un error controlado hasta que se configuren.
 src/
 ├── app/
 │   ├── page.js                 # Inicio
-│   ├── servicios/page.js
-│   ├── portafolio/
-│   │   ├── page.js              # Grid de casos
-│   │   └── [slug]/page.js       # Detalle de caso
+│   ├── servicios/               # Los 4 servicios + FAQ (una sola página)
+│   ├── portafolio/page.js       # Vitrina de capacidades (no proyectos)
+│   ├── casos-de-exito/page.js   # Proyectos reales, con resultados medidos
 │   ├── nosotros/page.js
 │   ├── contacto/
 │   │   ├── page.js
 │   │   └── ContactForm.js       # Client component con validación
 │   └── api/
-│       ├── chat/route.js        # POST → Anthropic (Claude)
+│       ├── chat/route.js        # POST → proveedor de IA (ver AI_PROVIDER)
 │       └── contacto/route.js    # POST → webhook de n8n
 ├── components/                  # Header, Footer, ChatWidget, Logo
-└── lib/portfolio.js             # Contenido de los 5 casos del portafolio
+└── lib/
+    ├── casos.js                 # Los 5 casos reales de /casos-de-exito
+    └── capacidades.js           # Las capacidades de /portafolio
 ```
+
+`/portafolio` y `/casos-de-exito` son conceptos separados a propósito: portafolio
+muestra qué se puede construir (sin nombrar clientes ni resultados), casos de
+éxito muestra proyectos reales ya entregados con su resultado medido.
 
 ## Contenido pendiente de reemplazo
 
-- **Logo real**: `public/logo-mark.svg` es un placeholder geométrico. Reemplazar
-  cuando llegue el archivo del rostro de jaguar.
-- **Imágenes del portafolio**: `public/portafolio/*.svg` son placeholders de
-  marca. Reemplazar con capturas/imágenes reales de cada caso.
-- **Caso 5 del portafolio**: "Asistente de documentación clínica" está marcado
-  como `esPlaceholder: true` en `src/lib/portfolio.js` — es un caso conceptual
-  a definir, no un proyecto entregado.
-- **Resultado del modelo de ML**: `public/portafolio/apnea-ml-resultado.svg` es
-  un placeholder. Reemplazar con el export real del notebook de Google Colab.
+- **Imagen del caso ASAPP**: el archivo que se subió (`ASAPP.png`) resultó ser
+  el de una empresa distinta (venta de artículos promocionales, sin relación
+  con el agente de cotizaciones por WhatsApp) — pendiente de que llegue el
+  archivo correcto. Mientras tanto sigue el placeholder SVG en
+  `public/portafolio/asapp.svg`.
+- **Imágenes de Apnea Performance Tracker y Windows Audit Toolkit**: siguen
+  siendo placeholders SVG en `public/portafolio/`.
+- **Caso 5 de "Casos de éxito"**: "Asistente de documentación clínica" está
+  marcado como `enDesarrollo: true` en `src/lib/casos.js` — es un caso
+  conceptual a definir, no un proyecto entregado.
+- **Resultado del modelo de ML**: `public/portafolio/apnea-ml-resultado.svg`
+  sigue siendo un placeholder. Reemplazar con el export real del notebook de
+  Google Colab.
+
+Ya resueltos: el logo real está en `public/logo-mark.svg` (además de
+`src/app/favicon.ico` y `src/app/apple-icon.png`, generados a partir del
+mismo archivo), y la imagen real de ProtoCertIA está en
+`public/portafolio/protocertia.png`.
 
 ## Deploy (Coolify)
 
