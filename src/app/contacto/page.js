@@ -10,7 +10,7 @@ export default function ContactoPage() {
         <div>
           <Kicker tone="selva">Contacto</Kicker>
           <h1 className="mt-4 font-display text-4xl font-bold text-selva sm:text-5xl">
-            Contanos qué tenés en mente
+            Cuéntanos qué tienes en mente
           </h1>
           <p className="mt-5 max-w-md text-lg leading-relaxed text-obsidiana/70">
             Nosotros vemos si tiene sentido resolverlo con IA. Y si no lo
@@ -20,19 +20,19 @@ export default function ContactoPage() {
           <div className="mt-12 space-y-4 border-t border-selva/10 pt-6">
             <div>
               <p className="kicker text-oro">Email</p>
-              <a href="mailto:hola@namsiku.ia" className="text-lg text-selva hover:text-oro">
-                hola@namsiku.ia
+              <a href="mailto:sefraur@gmail.com" className="text-lg text-selva hover:text-oro">
+                sefraur@gmail.com
               </a>
             </div>
             <div>
               <p className="kicker text-oro">WhatsApp</p>
               <a
-                href="https://wa.me/50000000000"
+                href="https://wa.me/573215841393"
                 target="_blank"
                 rel="noreferrer"
                 className="text-lg text-selva hover:text-oro"
               >
-                Escribinos directo
+                Escríbenos directo
               </a>
             </div>
           </div>

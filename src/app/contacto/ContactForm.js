@@ -30,7 +30,7 @@ export default function ContactForm() {
     if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(datos.email)) {
       errs.email = "Ingresa un email válido.";
     }
-    if (!datos.mensaje.trim()) errs.mensaje = "Contanos brevemente tu proyecto.";
+    if (!datos.mensaje.trim()) errs.mensaje = "Cuéntanos brevemente tu proyecto.";
     return errs;
   }
 
