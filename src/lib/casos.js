@@ -4,11 +4,11 @@ export const casos = [
     nombre: "ASAPP — Agente de cotizaciones por WhatsApp",
     imagen: "/portafolio/asapp.svg",
     problema:
-      "El equipo comercial perdía horas armando cotizaciones a mano por WhatsApp, con respuestas lentas y errores de cálculo en horas pico.",
+      "Cotizar le tomaba al dueño entre 20 y 45 minutos por cliente: 5 a 30 minutos de conversación más unos 15 minutos redactando y exportando el PDF a mano.",
     queConstruimos:
       "Un agente conversacional con estado, construido en n8n, que sostiene la conversación, calcula la cotización según reglas de negocio, genera el PDF y lo entrega por WhatsApp vía Evolution API, todo en el mismo hilo de chat.",
     resultado:
-      "Antes, cotizar le tomaba al dueño entre 20 y 45 minutos por cliente: 5 a 30 minutos de conversación más unos 15 minutos redactando y exportando el PDF. Ese tiempo se lo devolvió el flujo automatizado por completo: hoy el sistema conversa, cotiza y genera el PDF sin su intervención.",
+      "Ese tiempo personal quedó recuperado por completo: hoy el sistema conversa, cotiza y genera el PDF sin que el dueño intervenga.",
     herramientas: ["n8n", "Evolution API", "WhatsApp", "Generación de PDF"],
     beneficios: [
       { icono: "clock", texto: "20-45 min por cliente devueltos al dueño" },
@@ -25,11 +25,11 @@ export const casos = [
     nombre: "ProtoCertIA — Automatización de certificados con IA",
     imagen: "/portafolio/protocertia.svg",
     problema:
-      "Emitir certificados de calidad de producto era un proceso manual, lento y propenso a errores de transcripción, con un cliente real (Protokimica) esperando un flujo confiable.",
+      "Cada certificado tomaba entre 20 y 30 minutos, transcrito a mano desde el documento fuente, con el margen de error que eso implica.",
     queConstruimos:
-      "Un pipeline que extrae datos de documentos fuente con visión por computadora y genera el certificado oficial en PDF por código, sin plantillas frágiles.",
+      "Un pipeline que extrae datos del documento fuente con visión por computadora y genera el certificado oficial en PDF por código, sin plantillas frágiles. Piloto activo con Protokimica.",
     resultado:
-      "Piloto activo con Protokimica. Estos números son datos medidos en producción, no estimaciones.",
+      "2 minutos por documento (90% de reducción), ~1.560 documentos procesados por mes al ritmo actual, y una tasa de error que bajó de 5.5% a 0.5% (91% menos errores). Datos medidos en producción, no estimaciones.",
     herramientas: [
       "Visión por computadora",
       "Node.js",

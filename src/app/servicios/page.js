@@ -10,6 +10,29 @@ const SERVICIOS = [
     titulo: "Automatización de Procesos",
     descripcion:
       "Convertimos tareas manuales y repetitivas (cotizaciones, traspaso de datos entre sistemas, generación de reportes) en flujos que corren solos, sin intervención humana.",
+    flujos: [
+      {
+        titulo: "Flujos de cotización",
+        antes:
+          "alguien arma la cotización a mano, cliente por cliente: calcula precios, redacta el mensaje y exporta el PDF.",
+        despues:
+          "el flujo conversa con el cliente, calcula según tus reglas de negocio y entrega el PDF por el mismo canal, sin que nadie lo dispare a mano.",
+      },
+      {
+        titulo: "Sincronización de sistemas",
+        antes:
+          "los mismos datos se copian y pegan de una planilla a un CRM, o entre sistemas que no se hablan entre sí. Cada traspaso es una oportunidad de error.",
+        despues:
+          "los sistemas quedan conectados: el dato se escribe una vez y viaja solo a donde tiene que estar.",
+      },
+      {
+        titulo: "Reportes automáticos",
+        antes:
+          "alguien arma el mismo reporte cada semana o cada mes, revisando varias fuentes y armando el formato a mano.",
+        despues:
+          "el reporte se genera solo, con el formato que ya usas, listo para revisar en vez de armar desde cero.",
+      },
+    ],
   },
   {
     numero: "02",
@@ -17,14 +40,19 @@ const SERVICIOS = [
     titulo: "Agentes Autónomos y Agentes Conversacionales",
     subitems: [
       {
-        etiqueta: "Agentes conversacionales",
+        etiqueta: "Atención conversacional",
         texto:
-          "Asistentes que responden en WhatsApp, tu web o donde ya esté tu cliente, sosteniendo el contexto de toda la conversación.",
+          "Responde preguntas frecuentes, sostiene la conversación y deriva a una persona solo cuando hace falta. Vive en WhatsApp, en tu web, o en los dos a la vez.",
+      },
+      {
+        etiqueta: "Calificación de leads",
+        texto:
+          "Conversa con quien te escribe, entiende qué necesita y decide si pasa directo a un vendedor o queda en seguimiento automático, sin que nadie filtre cada contacto a mano.",
       },
       {
         etiqueta: "Agentes autónomos",
         texto:
-          "Sistemas que no solo responden, sino que ejecutan tareas por sí mismos dentro de un flujo de trabajo. Investigan, deciden entre opciones predefinidas y actúan, sin que un humano dispare cada paso a mano.",
+          "No solo responden: dentro de reglas ya definidas, investigan una opción, deciden entre alternativas y ejecutan la tarea, sin que un humano dispare cada paso a mano.",
       },
     ],
   },
@@ -87,6 +115,24 @@ export default function ServiciosPage() {
                       <span className="font-semibold text-selva">{sub.etiqueta}: </span>
                       {sub.texto}
                     </p>
+                  ))}
+                </div>
+              )}
+
+              {s.flujos && (
+                <div className="mt-6 space-y-5">
+                  {s.flujos.map((f) => (
+                    <div key={f.titulo} className="border-l-2 border-selva/10 pl-4">
+                      <p className="font-semibold text-selva">{f.titulo}</p>
+                      <p className="mt-1 text-sm leading-relaxed text-obsidiana/50">
+                        <span className="font-medium text-obsidiana/35">Antes: </span>
+                        {f.antes}
+                      </p>
+                      <p className="mt-1 text-sm leading-relaxed text-obsidiana/70">
+                        <span className="font-medium text-oro">Después: </span>
+                        {f.despues}
+                      </p>
+                    </div>
                   ))}
                 </div>
               )}
