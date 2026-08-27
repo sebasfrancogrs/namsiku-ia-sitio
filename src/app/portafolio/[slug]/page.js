@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import Kicker from "@/components/Kicker";
+import BenefitIcon from "@/components/BenefitIcon";
 import { casos, getCasoBySlug } from "@/lib/portfolio";
 
 export function generateStaticParams() {
@@ -56,15 +57,31 @@ export default async function CasoPage({ params }) {
           </div>
         </div>
 
-        <div className="mt-14 border-t border-selva/10 pt-6">
-          <Kicker tone="selva">Herramientas</Kicker>
-          <ul className="mt-4 flex flex-wrap gap-x-8 gap-y-2">
-            {caso.herramientas.map((h) => (
-              <li key={h} className="font-display text-lg text-selva">
-                {h}
-              </li>
-            ))}
-          </ul>
+        <div className="mt-14 grid gap-12 border-t border-selva/10 pt-6 lg:grid-cols-2">
+          <div>
+            <Kicker tone="selva">Herramientas</Kicker>
+            <ul className="mt-4 flex flex-wrap gap-x-8 gap-y-2">
+              {caso.herramientas.map((h) => (
+                <li key={h} className="font-display text-lg text-selva">
+                  {h}
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {caso.beneficios && (
+            <div>
+              <Kicker tone="selva">Beneficios clave</Kicker>
+              <ul className="mt-4 space-y-3">
+                {caso.beneficios.map((b) => (
+                  <li key={b.texto} className="flex items-center gap-3">
+                    <BenefitIcon name={b.icono} className="h-5 w-5 shrink-0 text-oro" />
+                    <span className="text-obsidiana/80">{b.texto}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          )}
         </div>
 
         {caso.mlResultado && (

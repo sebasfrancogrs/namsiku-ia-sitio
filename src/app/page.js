@@ -1,6 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import Kicker from "@/components/Kicker";
+import CursorGlow from "@/components/CursorGlow";
 
 const SERVICIOS_INDICE = [
   { numero: "01", titulo: "Automatización de procesos" },
@@ -13,13 +14,14 @@ export default function Home() {
   return (
     <>
       <section className="relative overflow-hidden bg-selva-textured">
-        <div className="mx-auto grid max-w-6xl gap-12 px-4 py-20 sm:px-6 sm:py-28 lg:grid-cols-[1.2fr_0.8fr] lg:items-end lg:gap-8">
+        <CursorGlow />
+        <div className="relative mx-auto grid max-w-6xl gap-12 px-4 py-20 sm:px-6 sm:py-28 lg:grid-cols-[1.2fr_0.8fr] lg:items-end lg:gap-8">
           <div>
             <Kicker>Consultoría en IA y automatización</Kicker>
             <h1 className="mt-5 font-display text-[clamp(3rem,9vw,6.5rem)] leading-[0.95] font-bold tracking-tight text-crema">
               Namsiku
               <br />
-              IA
+              <span className="text-oro">IA</span>
             </h1>
             <p className="mt-6 font-display text-2xl italic text-oro sm:text-3xl">
               Percibe. Piensa. Actúa.
