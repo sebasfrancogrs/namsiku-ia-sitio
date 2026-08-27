@@ -7,6 +7,7 @@ import Logo from "./Logo";
 const NAV_LINKS = [
   { href: "/servicios", label: "Servicios" },
   { href: "/portafolio", label: "Portafolio" },
+  { href: "/casos-de-exito", label: "Casos de Éxito" },
   { href: "/nosotros", label: "Nosotros" },
   { href: "/contacto", label: "Contacto" },
 ];
@@ -19,7 +20,7 @@ export default function Header() {
       <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-4 sm:px-6">
         <Logo />
 
-        <nav className="hidden gap-10 md:flex">
+        <nav className="hidden gap-6 lg:flex lg:gap-8">
           {NAV_LINKS.map((link) => (
             <Link
               key={link.href}
@@ -34,7 +35,7 @@ export default function Header() {
         <button
           type="button"
           onClick={() => setOpen((v) => !v)}
-          className="flex h-10 w-10 items-center justify-center text-crema md:hidden"
+          className="flex h-10 w-10 items-center justify-center text-crema lg:hidden"
           aria-label={open ? "Cerrar menú" : "Abrir menú"}
           aria-expanded={open}
         >
@@ -52,7 +53,7 @@ export default function Header() {
       </div>
 
       {open && (
-        <nav className="flex flex-col border-t border-crema/10 md:hidden">
+        <nav className="flex flex-col border-t border-crema/10 lg:hidden">
           {NAV_LINKS.map((link) => (
             <Link
               key={link.href}

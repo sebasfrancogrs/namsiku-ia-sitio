@@ -11,7 +11,7 @@ const FAQS = [
   {
     pregunta: "¿Cuánto tiempo toma un proyecto típico?",
     respuesta:
-      "Depende del alcance. La mayoría de las automatizaciones y agentes conversacionales quedan listos entre 2 y 6 semanas. Los proyectos con un modelo predictivo a medida suelen tomar más, porque dependen de la calidad de los datos disponibles.",
+      "Depende del alcance. La mayoría de las automatizaciones y agentes conversacionales quedan listos entre 2 y 6 semanas. Los proyectos de consultoría o sitios web varían más, según qué tan definido esté el alcance desde el inicio.",
   },
   {
     pregunta: "¿El sistema se despliega en mi infraestructura o en la de ustedes?",
@@ -24,19 +24,19 @@ const FAQS = [
       "Cada flujo se construye con manejo de errores: si algo falla, no se pierde el dato ni queda a medias en silencio. Llega una alerta con el detalle exacto de qué paso falló, para reintentarlo o revisarlo a mano si hace falta.",
   },
   {
-    pregunta: "¿El agente conversacional funciona en WhatsApp o solo en la web?",
+    pregunta: "¿Cuál es la diferencia entre un agente conversacional y uno autónomo?",
     respuesta:
-      "Puede vivir en WhatsApp, en tu sitio web, o en ambos con la misma lógica de fondo. La integración con WhatsApp usa tu propio número de negocio, no uno genérico compartido.",
+      "Un agente conversacional responde: sostiene la conversación y entrega la información o el resultado que pediste. Un agente autónomo va un paso más allá: dentro de reglas claras, decide entre opciones y ejecuta la tarea sin que alguien dispare cada paso a mano. Muchos proyectos usan los dos juntos, uno conversa y el otro actúa detrás.",
   },
   {
-    pregunta: "¿Qué tan preciso es leyendo documentos escaneados o de baja calidad?",
+    pregunta: "¿Y si no sé si la inteligencia artificial sirve para mi caso?",
     respuesta:
-      "Funciona bien incluso con fotos de celular o escaneos imperfectos, porque usa visión por computadora en vez de reglas fijas de posición. Cuando el documento es prácticamente ilegible, el sistema lo marca para revisión humana en vez de adivinar.",
+      "Para eso empieza ahí la consultoría, no al final. Revisamos tu proceso real y, si la conclusión es que la IA no aporta nada por ahora, te lo decimos directamente. No cobramos por instalar tecnología que no vas a usar.",
   },
   {
-    pregunta: "¿Necesito tener mis datos organizados antes de empezar un modelo predictivo?",
+    pregunta: "¿Un sitio web hecho con flujos de IA no se ve genérico?",
     respuesta:
-      "No necesitan estar perfectos, pero sí necesitamos saber dónde viven: una hoja de cálculo, una base de datos, un CRM. Ordenar y limpiar esos datos suele ser parte del trabajo inicial, antes de entrenar cualquier modelo.",
+      "Ese riesgo es real cuando se usa IA para todo el proceso sin criterio. Nosotros la usamos para acelerar partes puntuales (redacción, iteración de diseño, primeras versiones de código), pero la dirección de marca y las decisiones de diseño las define un humano. El resultado se ve como tu marca, no como una plantilla.",
   },
   {
     pregunta: "¿Qué pasa si necesito soporte después de la entrega?",

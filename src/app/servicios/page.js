@@ -6,27 +6,41 @@ export const metadata = { title: "Servicios" };
 const SERVICIOS = [
   {
     numero: "01",
-    titulo: "Automatización de procesos",
+    id: "automatizacion",
+    titulo: "Automatización de Procesos",
     descripcion:
-      "Esa tarea que alguien arma a mano cada semana, una cotización, un traspaso de datos entre sistemas, la convertimos en un flujo que corre solo.",
+      "Convertimos tareas manuales y repetitivas (cotizaciones, traspaso de datos entre sistemas, generación de reportes) en flujos que corren solos, sin intervención humana.",
   },
   {
     numero: "02",
-    titulo: "Agentes conversacionales",
-    descripcion:
-      "Un asistente que recuerda de qué se habló hace tres mensajes, no solo el último. Vive en WhatsApp, en tu web, o en el canal donde ya está tu cliente.",
+    id: "agentes",
+    titulo: "Agentes Autónomos y Agentes Conversacionales",
+    subitems: [
+      {
+        etiqueta: "Agentes conversacionales",
+        texto:
+          "Asistentes que responden en WhatsApp, tu web o donde ya esté tu cliente, sosteniendo el contexto de toda la conversación.",
+      },
+      {
+        etiqueta: "Agentes autónomos",
+        texto:
+          "Sistemas que no solo responden, sino que ejecutan tareas por sí mismos dentro de un flujo de trabajo. Investigan, deciden entre opciones predefinidas y actúan, sin que un humano dispare cada paso a mano.",
+      },
+    ],
   },
   {
     numero: "03",
-    titulo: "Extracción y generación de documentos con IA",
+    id: "consultoria",
+    titulo: "Consultoría de IA",
     descripcion:
-      "Leemos un documento con visión por computadora y generamos el certificado o el reporte del otro lado, por código, sin depender de una plantilla de Word a punto de romperse.",
+      "Ayudamos a tu organización a identificar dónde la inteligencia artificial resuelve algo real, diseñar la solución correcta para ese problema específico e implementarla de principio a fin, sin vender tecnología que no necesitas.",
   },
   {
     numero: "04",
-    titulo: "Análisis de datos y modelos predictivos",
+    id: "sitios-web",
+    titulo: "Creación de Sitios Web con IA",
     descripcion:
-      "Un modelo que mira tus datos y encuentra la correlación que ya sospechabas, pero no podías demostrar.",
+      "Sitios profesionales construidos con flujos de trabajo de IA de principio a fin: diseño, contenido y desarrollo acelerados por IA, sin sacrificar calidad ni verse genéricos.",
   },
 ];
 
@@ -49,7 +63,8 @@ export default function ServiciosPage() {
         {SERVICIOS.map((s) => (
           <div
             key={s.numero}
-            className="grid gap-4 py-10 sm:grid-cols-[auto_1fr] sm:gap-10"
+            id={s.id}
+            className="grid scroll-mt-24 gap-4 py-10 sm:grid-cols-[auto_1fr] sm:gap-10"
           >
             <span className="font-display text-4xl font-semibold text-oro sm:text-5xl">
               {s.numero}
@@ -58,9 +73,23 @@ export default function ServiciosPage() {
               <h2 className="font-display text-2xl font-bold text-selva">
                 {s.titulo}
               </h2>
-              <p className="mt-3 leading-relaxed text-obsidiana/70">
-                {s.descripcion}
-              </p>
+
+              {s.descripcion && (
+                <p className="mt-3 leading-relaxed text-obsidiana/70">
+                  {s.descripcion}
+                </p>
+              )}
+
+              {s.subitems && (
+                <div className="mt-4 space-y-4">
+                  {s.subitems.map((sub) => (
+                    <p key={sub.etiqueta} className="leading-relaxed text-obsidiana/70">
+                      <span className="font-semibold text-selva">{sub.etiqueta}: </span>
+                      {sub.texto}
+                    </p>
+                  ))}
+                </div>
+              )}
             </div>
           </div>
         ))}

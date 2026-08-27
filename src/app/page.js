@@ -4,10 +4,10 @@ import Kicker from "@/components/Kicker";
 import CursorGlow from "@/components/CursorGlow";
 
 const SERVICIOS_INDICE = [
-  { numero: "01", titulo: "Automatización de procesos" },
-  { numero: "02", titulo: "Agentes conversacionales" },
-  { numero: "03", titulo: "Documentos con IA" },
-  { numero: "04", titulo: "Análisis y modelos predictivos" },
+  { numero: "01", titulo: "Automatización de Procesos", href: "/servicios#automatizacion" },
+  { numero: "02", titulo: "Agentes Autónomos y Conversacionales", href: "/servicios#agentes" },
+  { numero: "03", titulo: "Consultoría de IA", href: "/servicios#consultoria" },
+  { numero: "04", titulo: "Creación de Sitios Web con IA", href: "/servicios#sitios-web" },
 ];
 
 export default function Home() {
@@ -35,8 +35,8 @@ export default function Home() {
               necesita que alguien lo dispare a mano.
             </p>
             <div className="mt-8 flex flex-wrap gap-4">
-              <Link href="/portafolio" className="btn btn-primary">
-                Ver portafolio <span className="btn-arrow">→</span>
+              <Link href="/casos-de-exito" className="btn btn-primary">
+                Ver casos de éxito <span className="btn-arrow">→</span>
               </Link>
               <Link href="/contacto" className="btn btn-ghost-on-dark">
                 Hablemos de tu proyecto
@@ -79,7 +79,7 @@ export default function Home() {
             {SERVICIOS_INDICE.map((s) => (
               <li key={s.numero}>
                 <Link
-                  href="/servicios"
+                  href={s.href}
                   className="group flex items-baseline gap-6 py-6 transition-colors hover:bg-selva/[0.03]"
                 >
                   <span className="font-display text-sm text-oro">
