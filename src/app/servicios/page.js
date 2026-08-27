@@ -1,4 +1,5 @@
 import Kicker from "@/components/Kicker";
+import FaqAccordion from "./FaqAccordion";
 
 export const metadata = { title: "Servicios" };
 
@@ -63,6 +64,16 @@ export default function ServiciosPage() {
             </div>
           </div>
         ))}
+      </div>
+
+      <div className="mt-20 max-w-3xl">
+        <Kicker tone="selva">Preguntas frecuentes</Kicker>
+        <h2 className="mt-4 font-display text-3xl font-bold text-selva">
+          Antes de que preguntes
+        </h2>
+        <div className="mt-8">
+          <FaqAccordion />
+        </div>
       </div>
     </div>
   );

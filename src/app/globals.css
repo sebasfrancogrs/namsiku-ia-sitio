@@ -100,6 +100,13 @@ h4,
   transform: translateX(3px);
 }
 
+.faq-summary::-webkit-details-marker {
+  display: none;
+}
+.faq-summary {
+  list-style: none;
+}
+
 .no-scrollbar {
   scrollbar-width: none;
   -ms-overflow-style: none;
