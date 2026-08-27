@@ -2,7 +2,7 @@ export const casos = [
   {
     slug: "asapp-agente-cotizaciones",
     nombre: "ASAPP — Agente de cotizaciones por WhatsApp",
-    imagen: "/portafolio/asapp.svg",
+    imagen: "/portafolio/asapp.jpg",
     problema:
       "Cotizar le tomaba al dueño entre 20 y 45 minutos por cliente: 5 a 30 minutos de conversación más unos 15 minutos redactando y exportando el PDF a mano.",
     queConstruimos:

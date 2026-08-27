@@ -27,7 +27,7 @@ export default function CasosDeExitoPage() {
             <div className="grid gap-10 lg:grid-cols-[0.9fr_1.1fr]">
               <div>
                 <div className="relative aspect-[4/3] w-full overflow-hidden bg-selva">
-                  <Image src={caso.imagen} alt={caso.nombre} fill className="object-cover" />
+                  <Image src={caso.imagen} alt={caso.nombre} fill className="object-contain" />
                 </div>
                 {caso.enDesarrollo && (
                   <p className="kicker mt-3 text-oro">En desarrollo — caso propuesto</p>

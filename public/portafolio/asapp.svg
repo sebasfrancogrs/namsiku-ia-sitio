@@ -1,8 +1,0 @@
-<svg viewBox="0 0 800 500" xmlns="http://www.w3.org/2000/svg">
-  <rect width="800" height="500" fill="#1F3A2E"/>
-  <circle cx="680" cy="80" r="140" fill="#B08D45" opacity="0.25"/>
-  <circle cx="90" cy="440" r="110" fill="#C9762B" opacity="0.25"/>
-  <rect x="0" y="0" width="800" height="500" fill="none" stroke="#B08D45" stroke-width="6"/>
-  <text x="50%" y="48%" text-anchor="middle" fill="#F5F0E6" font-family="Georgia, serif" font-size="34" font-weight="700">ASAPP</text>
-  <text x="50%" y="58%" text-anchor="middle" fill="#B08D45" font-family="Arial, sans-serif" font-size="16" letter-spacing="2">NAMSIKU IA — PORTAFOLIO</text>
-</svg>
