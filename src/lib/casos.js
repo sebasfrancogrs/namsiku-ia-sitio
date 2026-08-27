@@ -60,7 +60,7 @@ export const casos = [
   {
     slug: "apnea-performance-tracker",
     nombre: "Apnea Performance Tracker",
-    imagen: "/portafolio/apnea.svg",
+    imagen: "/portafolio/apnea.jpg",
     problema:
       "Un atleta de apnea no tenía forma de ver cómo su sueño y estado de salud afectaban su rendimiento real en el agua, más allá de la intuición.",
     queConstruimos:
@@ -84,7 +84,7 @@ export const casos = [
   {
     slug: "windows-audit-toolkit",
     nombre: "Windows Audit Toolkit",
-    imagen: "/portafolio/windows-audit.svg",
+    imagen: "/portafolio/windows-audit.jpg",
     problema:
       "Antes de migrar equipos, el equipo de TI no tenía un inventario confiable ni rápido del estado real de cada máquina: software instalado, configuración, riesgos.",
     queConstruimos:
