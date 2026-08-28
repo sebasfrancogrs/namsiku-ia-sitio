@@ -83,23 +83,6 @@ export default function CasosDeExitoPage() {
                     <span aria-hidden="true">→</span>
                   </Link>
                 )}
-
-                {caso.mlResultado && (
-                  <div className="mt-8 border border-oro/25 p-6">
-                    <Kicker>{caso.mlResultado.titulo}</Kicker>
-                    <p className="mt-2 text-sm leading-relaxed text-obsidiana/65">
-                      {caso.mlResultado.descripcion}
-                    </p>
-                    <div className="relative mt-4 aspect-[16/9] w-full overflow-hidden">
-                      <Image
-                        src={caso.mlResultado.imagen}
-                        alt={caso.mlResultado.titulo}
-                        fill
-                        className="object-cover"
-                      />
-                    </div>
-                  </div>
-                )}
               </div>
             </div>
           </article>

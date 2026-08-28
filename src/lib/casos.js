@@ -74,12 +74,6 @@ export const casos = [
       { icono: "target", texto: "Decisiones basadas en datos, no en intuición" },
     ],
     servicioRelacionado: { label: "Consultoría de IA", href: "/servicios#consultoria" },
-    mlResultado: {
-      titulo: "Resultado del modelo (Google Colab)",
-      descripcion:
-        "Modelo de correlación entrenado y documentado por separado en Google Colab. Este sitio muestra su resultado como imagen estática — no se sirve en vivo.",
-      imagen: "/portafolio/apnea-ml-resultado.svg",
-    },
   },
   {
     slug: "windows-audit-toolkit",

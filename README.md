@@ -60,19 +60,16 @@ muestra qué se puede construir (sin nombrar clientes ni resultados), casos de
 
 ## Contenido pendiente de reemplazo
 
-- **Imagen del caso ASAPP**: el archivo que se subió (`ASAPP.png`) resultó ser
-  el de una empresa distinta (venta de artículos promocionales, sin relación
-  con el agente de cotizaciones por WhatsApp) — pendiente de que llegue el
-  archivo correcto. Mientras tanto sigue el placeholder SVG en
-  `public/portafolio/asapp.svg`.
-- **Imágenes de Apnea Performance Tracker y Windows Audit Toolkit**: siguen
-  siendo placeholders SVG en `public/portafolio/`.
 - **Caso 5 de "Casos de éxito"**: "Asistente de documentación clínica" está
   marcado como `enDesarrollo: true` en `src/lib/casos.js` — es un caso
   conceptual a definir, no un proyecto entregado.
-- **Resultado del modelo de ML**: `public/portafolio/apnea-ml-resultado.svg`
-  sigue siendo un placeholder. Reemplazar con el export real del notebook de
-  Google Colab.
+
+Ya resueltos: logo real, y las imágenes de los 4 casos reales (ASAPP,
+ProtoCertIA, Apnea Performance Tracker, Windows Audit Toolkit) — las de Apnea
+y Windows Audit se generaron con Nano Banana 2 siguiendo la paleta de marca.
+El bloque de "Resultado del modelo de ML (Google Colab)" del caso Apnea se
+quitó del sitio por pedido del usuario, al no contar con ese dato — no quedó
+como placeholder, se eliminó la sección entera.
 
 Ya resueltos: el logo real está en `public/logo-mark.svg` (además de
 `src/app/favicon.ico` y `src/app/apple-icon.png`, generados a partir del
